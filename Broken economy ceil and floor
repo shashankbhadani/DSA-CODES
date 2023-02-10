@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+public static void Broken(int arr[],int k){
+    int lo=0;
+    int hi=arr.length-1;
+    int ceil=0;
+    int floor=0;
+    while(lo<=hi){
+        int mid=(lo+hi)/2;
+        if(k>arr[mid]){
+            lo=mid+1;
+            floor=arr[lo];
+        }
+        else if(k<arr[mid]){
+            hi=mid-1;
+            ceil=arr[hi];
+         }
+        else{
+            System.out.println(arr[mid]);
+            return;
+        }
+    }
+    System.out.println(floor);
+    System.out.println(ceil);
+
+}
+
+public static void main(String[] args) throws Exception {
+    Scanner scn=new Scanner(System.in);
+    int n=scn.nextInt();
+    int arr[]=new int[n];
+    for(int i=0;i<n;i++){
+        arr[i]=scn.nextInt();
+    }
+    int d=scn.nextInt();
+    Broken(arr,d);
+
+
+ }
+
+}
