@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Main{
+public static void wakanda(int arr[][]){
+    int count=0;
+    int rmin=0;
+    int rmax=arr.length-1;
+    int cmin=0;
+    int cmax=arr[0].length-1;
+    while(count<arr.length*arr[0].length){
+        for(int r=0;r<=rmax&&count<arr.length*arr[0].length;r++){
+            System.out.println(arr[r][cmin]);
+            count++;
+        }
+        cmin++;
+        for(int r=rmax;r>=0&&count<arr.length*arr[0].length;r--){
+            System.out.println(arr[r][cmin]);
+            count++;
+        }
+        cmin++;
+    }
+
+
+}
+
+public static void main(String[] args) throws Exception {
+    Scanner scn=new Scanner(System.in);
+    int nr=scn.nextInt();
+    int nc=scn.nextInt();
+    int arr[][]=new int[nr][nc];
+    for(int r=0;r<nr;r++){
+        for(int c=0;c<nc;c++){
+            arr[r][c]=scn.nextInt();
+        }
+    }
+    wakanda(arr);
+ }
+
+}
