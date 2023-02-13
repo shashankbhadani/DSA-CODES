@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	public static boolean palindrom(String str){
+		int lo=0;
+		int hi=str.length()-1;
+		while(lo<=hi){
+			if(str.charAt(lo)==str.charAt(hi)){
+				lo++;
+				hi--;
+			}
+			else{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static void solution(String str){
+		for(int i=0;i<str.length();i++){
+			for(int j=i+1;j<=str.length();j++){
+				String ss=str.substring(i,j);
+				palindrom(ss);
+				if(palindrom(ss)){
+				System.out.println(ss);
+				}
+			}
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		String str = scn.next();
+		solution(str);
+	}
+
+}
