@@ -1,0 +1,55 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void exit(int arr[][]){
+      int r=0;
+      int c=0;
+      int rmax=arr.length-1;
+      int cmax=arr[0].length-1;
+      int dir=0;
+      while(r>=0&&c>=0&&r<=rmax&&c<=cmax){
+       dir=(dir+arr[r][c])%4;
+       if(dir==0){
+         c++;
+       }
+       else if(dir==1){
+         r++;
+       }
+       else if(dir==2){
+         c--;
+       }
+       else{
+         r--;
+       }
+      }
+       if(dir==0){
+         c--;
+       }
+       else if(dir==1){
+         r--;
+       }
+       else if(dir==2){
+         c++;
+       }
+       else{
+         r++;
+       }
+      
+      System.out.println(r);
+      System.out.println(c);
+    }
+    public static void main(String[] args) throws Exception {
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int m=scn.nextInt();
+        int arr[][]=new int[n][m];
+        for(int r=0;r<arr.length;r++){
+          for(int c=0;c<arr[0].length;c++){
+            arr[r][c]=scn.nextInt();
+          }
+        }
+        exit(arr);
+    }
+
+}
